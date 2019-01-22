@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box" style='border:1px solid black'>
+		<p>西安西安西安西安</p>
+		<div class="son" style="width:200px;height:200px;background-color: blue"></div>
+		<!-- 注释节点 -->
+		<div class="item" style="width:200px;height:200px;background-color: cyan"></div>
+	</div>
+	
+</body>
+<script>
+	var son=document.querySelector('.son');
+	var item=document.querySelector('.item');
+	// document.body.appendChild(son); 
+	var p=document.querySelector('p');
+	// son.appendChild(p);
+	// document.querySelector('.box').insertBefore(son,p);
+	// document.querySelector('.box').removeChild(son);
+	// var em=document.createElement('em');
+	// em.innerHTML='em标签';
+	// document.querySelector('.box').replaceChild(em,p);
+
+	// var obj=document.querySelector('.box').cloneNode(true);//默认值为false
+	// document.body.appendChild(obj);
+	
+	// 父对象.appendChild('子节点');
+	// 子对象. ('父节点');
+	console.dir(p);
+	Object.prototype.appendTo=function(father){
+		father.appendChild(this);
+	};
+	// var div=document.createElement('div');
+	// div.style.cssText='width:300px;height:300px;background:cyan';
+	// div.appendTo(document.body);
+	console.dir(son);
+// 对象1.insertAfter(对象2);
+	Object.prototype.insertAfter=function(obj2){
+		var parent=obj2.parentNode;
+		var next=obj2.nextElementSibling;
+		if(next){
+			parent.insertBefore(this,next);
+		}else{	
+			this.appendTo(parent);
+		}
+	}
+	var div=document.createElement('div');
+	div.className='create';
+	div.insertAfter(item);
+
+
+
+</script>
+</html>

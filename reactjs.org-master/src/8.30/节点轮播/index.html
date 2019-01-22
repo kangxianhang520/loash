@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src='function.js'></script>
+	<script src='animate.js'></script>
+</head>
+<style>
+	*{
+		padding: 0px;
+		margin: 0px;
+		list-style: none;
+	}
+	.banner{
+		width: 1200px;
+		height: 150px;
+		margin: 100px auto;
+		position: relative;
+		border: 5px solid black;
+		/* overflow: hidden; */
+	}
+	.imgBox{
+		width: 200%;
+		height: 100%;
+		position: absolute;
+		left: -300px;
+		top: 0px;
+		line-height: 150px;
+		font-size: 50px;
+	}
+	.imgBox>li{
+		width:12.5%;
+		height: 100%;
+		float:left;
+		text-align: center;
+	}
+</style>
+<body>
+	<div class="banner">
+		<ul class="imgBox">
+			<li style="background:red;">1</li>
+			<li style="background:gold;">2</li>
+			<li style="background:plum;">3</li>
+			<li style="background:#ff6700;">4</li>
+			<li style="background:pink;">5</li>
+			<li style="background:yellow;">6</li>
+			<li style="background:orange;">7</li>
+			<li style="background:cyan;">8</li>
+		</ul>
+	</div>
+</body>
+<script>
+	var images=$('.imgBox')[0];
+	function move(){
+		// animate(images,{left:-300},1000,function(){
+		// 	var first=images.firstElementChild;
+		// 	console.log(first);
+		// 	images.style.left='0px';
+		// 	first.appendTo(images);
+		// });
+		
+		var first=images.firstElementChild;
+		var last=images.lastElementChild;
+		// images.style.left='-300px';
+		// images.insertBefore(last,first);
+		// animate(images,{left:0},1000); 
+		
+		// var first=images.firstElementChild;
+		// animate(first,{width:0},function(){
+		// 	first.appendTo(images);
+		// 	first.style.width='300px';
+		// })
+
+		last.style.width='0px';
+		images.insertBefore(last,first);
+		animate(last,{width:300},1000);
+
+
+
+
+
+	}
+	var t=setInterval(function(){
+		move();
+	},2000);
+</script>
+</html>

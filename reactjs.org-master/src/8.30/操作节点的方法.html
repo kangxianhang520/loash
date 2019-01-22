@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box" style='border:1px solid black'>
+		<p>西安西安西安西安</p>
+		<!-- 注释节点 -->
+	</div>
+</body>
+<script>
+	NodeList.prototype.aa=function(){
+		alert('这是我加的aa方法！！');
+	}
+	var box=document.querySelector('.box');
+	// console.log(box.firstChild);
+	// console.dir(NodeList);
+	// console.dir(box);
+	// box.childNodes.aa();
+	
+	// function person(sex,name){
+	// 	this.sex=sex;
+	// 	this.name=name;
+	// 	this.aa=function(){
+	// 		alert('构造函数中的aa');
+	// 	}
+	// }
+	// person.prototype={
+	// 	say:function(){
+	// 		alert('聊天');
+	// 	}
+	// }
+	// person.aa=function(){
+	// 	alert("aa");
+	// }
+	// var per=new person('小明',12);
+	// var women=new person('小红',15);
+	// per.aa();
+	// person.aa();
+
+	// Object.prototype.bb='bb';
+
+	// var obj={};
+	// console.log(obj.bb);
+	
+	// var box=document.querySelectorAll('.box');
+	// console.dir(box);
+	// box.aa();
+	
+	// var box=document.querySelector('.box');
+	// console.log(box.childNodes[0].nodeType,box.childNodes[0].nodeName,box.childNodes[0].nodeValue);
+
+	// console.log(box.firstElementChild.nodeType,box.firstElementChild.nodeName,box.firstElementChild.nodeValue);
+	// var obj=box.childNodes[box.childNodes.length-2];
+	// console.log(document.nodeType);
+	// console.dir(box.getAttribute('style'));
+	// console.log(obj.nodeValue,obj.nodeType,obj.nodeName);
+
+	// console.log(getComputedStyle(box,null));
+	
+
+
+	// 创建元素节点
+	var div=document.createElement('div');
+	// div.className='box';
+	// div.id='item';
+	// div.innerHTML='这是创建的box';
+	// div.style.cssText='width:200px;height:200px;background:red';
+	// document.documentElement//html的根标签
+	// document.body//body标签
+	// document.body.appendChild(div);
+	// for(var i=0;i<10;i++){
+	// 	var p=document.createElement('p');
+	// 	p.innerHTML=i;
+	// 	div.appendChild(p);
+	// }
+	// document.body.appendChild(div);
+
+
+
+	// 创建属性节点
+	// box.put='aaa';
+	// box.setAttribute('type','box');//
+	
+	var attr=document.createAttribute('attr');//创建属性节点attr
+	// console.log(attr.nodeType);
+	attr.nodeValue='100';//设置属性节点attr的值
+	box.setAttributeNode(attr);//给box设置属性节点attr 
+	// console.log(box);
+	// console.log(attr.nodeValue);
+
+	// 创建文本节点
+	// var text=document.createTextNode('123');
+	// div.appendChild(text);
+	div.innerHTML='文本';
+	console.log(div);
+
+
+
+</script>
+</html>
